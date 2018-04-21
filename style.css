@@ -4,6 +4,10 @@ html, body{
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+body{
+    padding-top: 42px;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -32,7 +36,7 @@ a, a:focus, a:visited, a:hover, a:active{
 }
 
 .header-container{
-    width: 1012px;
+    max-width: 1012px;
     height: 42px;
     line-height: 42px;
     margin: 0 auto;
@@ -47,11 +51,12 @@ a, a:focus, a:visited, a:hover, a:active{
 
 @media only screen and (max-width: 1020px){
     .header-left{
-        left: 5px;
+        left: 8px;
     }
 }
 
 .header-right{
+    min-width: 336px;
     flex-grow: 2;
 }
 
@@ -142,7 +147,7 @@ a, a:focus, a:visited, a:hover, a:active{
     padding: 1px;
     position: relative;
     right: 0;
-    top: -1px;
+    top: -2px;
     vertical-align: middle;
     background-position: 0 -618px;
     width: 16px;
@@ -158,6 +163,8 @@ a, a:focus, a:visited, a:hover, a:active{
     height: 24px;
     color: white;
     vertical-align: middle;
+    position: relative;
+    right: -5px;
 }
 
 .header-user-logo{
@@ -165,7 +172,12 @@ a, a:focus, a:visited, a:hover, a:active{
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    margin: 2px 6px 2px -8px;
+    margin: 2px 3px 2px -8px;
+}
+
+.header-links-wrapper{
+    margin-right: 10px;
+    margin-top: -1px;
 }
 
 .header-links{
@@ -201,6 +213,10 @@ a, a:focus, a:visited, a:hover, a:active{
     height: 27px;
     vertical-align: middle;
     opacity: .6;
+}
+
+.header-icons.message{
+    margin: 0 1px;
 }
 
 .header-extra-icons{
@@ -249,6 +265,7 @@ a, a:focus, a:visited, a:hover, a:active{
 
 .help-icon{
     background-position: 0 -466px;
+    margin-left: 13px;
 }
 
 .help-icon:focus{
@@ -258,6 +275,9 @@ a, a:focus, a:visited, a:hover, a:active{
 
 .drop-icon{
     background-position: 0 -711px;
+    vertical-align: middle;
+    margin-top: 3px;
+    display: inline-block;
 }
 
 .drop-icon:focus{
