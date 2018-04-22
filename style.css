@@ -70,24 +70,6 @@ ul {
     flex-grow: 2;
 }
 
-.fb-icons-1{
-    background-image: url(img/fb_logos1.png);
-    background-repeat: no-repeat;
-    background-size: auto;
-}
-
-.fb-icons-2{
-    background-image: url(img/fb_logos2.png);
-    background-repeat: no-repeat;
-    background-size: auto;
-}
-
-.fb-icons-3{
-    background-image: url(img/fb_logos3.png);
-    background-repeat: no-repeat;
-    background-size: auto;
-}
-
 .logo{
     width: 24px;
     height: 24px;
@@ -454,4 +436,28 @@ ul {
     height: 20px;
     margin-top: -12px;
     border-radius: 50%;
+}
+
+.create-list{
+    color: #90949c;
+}
+
+.create-item{
+    display: inline;
+}
+
+.usual-a{
+    color: #365899;
+}
+
+.usual-a:hover{
+    text-decoration: underline;
+}
+
+.dot{
+    line-height: 1px;
+    vertical-align: top;
+    display: inline-block;
+    margin-top: 3px;
+    margin-left: 3px;
 }
