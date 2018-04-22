@@ -335,6 +335,8 @@ ul {
 }
 
 .section-title{
+    padding: 4px 0;
+    box-sizing: unset;
     font-weight: bold;
     color: #616770;
 }
@@ -377,6 +379,7 @@ ul {
 
 .section-list-text{
     max-width: 126px;
+    margin-left: 2px;
     display: inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -389,10 +392,25 @@ ul {
     margin-top: -4px;
 }
 
+.side-user{
+    width: 20px;
+    height: 20px;
+    margin-top: -12px;
+    border-radius: 50%;
+}
+
 .fb-icon-hat{
     background-position: 0 -1469px;
 }
 
 .fb-icon-people{
     background-position: 0 -1006px;
+}
+
+.fb-icon-news{
+    background-position: 0 -1111px;
+}
+
+.fb-icon-messenger{
+    background-position: 0 -796px;
 }
