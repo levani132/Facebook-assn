@@ -290,6 +290,7 @@ ul {
 .left-panel {
     float: left;
     width: 180px;
+    position: fixed;
 }
 
 .main-panel{
@@ -459,5 +460,4 @@ ul {
     vertical-align: top;
     display: inline-block;
     margin-top: 3px;
-    margin-left: 3px;
 }
