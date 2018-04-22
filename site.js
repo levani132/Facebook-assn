@@ -11,6 +11,7 @@ updateScrenSize();
 
 var sidebar = document.querySelector('.left-panel');
 var sidebarHeight = sidebar.clientHeight;
+document.body.style.minHeight = (sidebarHeight + 90) + "px";
 var scrollTop = 0;
 var oldScroll = 0;
 window.onscroll = () => {
