@@ -41,6 +41,7 @@ ul {
     top: 0;
     background-color: #4267b2;
     border-bottom: 1px solid #29487d;
+    z-index: 1000;
 }
 
 .header-container{
@@ -328,15 +329,34 @@ ul {
 .section-list{
     font-size: 13px;
     margin-bottom: 10px;
+    position: relative;
 }
 
 .section-list .active{
     font-weight: bold;
 }
 
+.section-edit{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #365899;
+    display: inline-block;
+    padding: 4px 0;
+    margin-right: 5px;
+    display: none;
+}
+
+.section-list:hover .section-edit{
+    display: block;
+}
+
+.section-edit:hover{
+    text-decoration: underline;
+}
+
 .section-title{
     padding: 4px 0;
-    box-sizing: unset;
     font-weight: bold;
     color: #616770;
 }
@@ -346,6 +366,8 @@ ul {
     padding-left: 4px;
     height: 29px;
     line-height: 29px;
+    border-radius: 2px;
+    padding: 0 4px 0 28px;
     position: relative;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -358,9 +380,16 @@ ul {
     vertical-align: middle;
 }
 
+.section-item-a{
+    color: #1d2129;
+    display: inline-block;
+    min-width: 127px;
+}
+
 .section-list-item::after{
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    border-radius: 2px;
     content: "";
     position: absolute;
     top: 0;
@@ -372,6 +401,20 @@ ul {
     transition: opacity 0.1s;
 }
 
+.section-item-options-btn{
+    position: absolute;
+    top: 46%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: #f6f7f9;
+    opacity: 0;
+    transition: opacity 0.1s;
+}
+
+.section-list-item:hover .section-item-options-btn{
+    opacity: 1;
+}
+
 .section-list-item:hover::after, 
 .section-list-item.active::after{
     opacity: 1;
@@ -379,11 +422,25 @@ ul {
 
 .section-list-text{
     max-width: 126px;
-    margin-left: 2px;
+    margin-left: -3px;
     display: inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    vertical-align: top;
+}
+
+.section-number{
+    float: right;
+    font-size: 11px;
+    height: 17px;
+    margin-left: -2px;
+    color: #90949c;
+    padding: 0 3px;
+}
+
+.section-icon{
+    margin: 4px 6px 0 -24px;
 }
 
 .section-icon .fb-icons-2 {
@@ -413,4 +470,8 @@ ul {
 
 .fb-icon-messenger{
     background-position: 0 -796px;
+}
+
+.fb-icon-options{
+    background-position: 0 -629px;
 }
