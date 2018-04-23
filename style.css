@@ -52,6 +52,21 @@ ul {
     display: flex;
 }
 
+.profile-picture{
+    position: relative;
+}
+
+.profile-picture::after{
+    border: 1px solid rgba(0, 0, 0, .1);
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 50%;
+}
+
 .header-left{
     flex-grow: 8;
     position: relative;
@@ -394,6 +409,7 @@ ul {
     transition: opacity 0.1s;
 }
 
+.section-list-item.active .section-item-options-btn,
 .section-list-item:hover .section-item-options-btn{
     opacity: 1;
 }
@@ -467,6 +483,7 @@ ul {
     border: 1px solid #dddfe2;
     border-radius: 4px;
     overflow: hidden;
+    margin-bottom: 10px;
 }
 
 .new-post-header{
@@ -495,21 +512,48 @@ ul {
     margin-top: -3px;
 }
 
-.new-post-body{
-    padding: 12px;
+.make-post{
+    position: relative;
 }
 
-.new-post-user-pic{
+.make-post::after{
+    border-bottom: 8px solid #fff;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    content: '';
+    position: absolute;
+    left: 39px;
+    top: 26px;
+}
+
+.make-post-arrow{
+    border-bottom: 9px solid #e9ebee;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    content: '';
+    position: absolute;
+    left: 38px;
+    top: 25px;
+}
+
+.new-post-body{
+    padding: 12px;
+    margin-bottom: 2px;
+}
+
+.post-user-pic{
     height: 40px;
     width: 40px;
     position: relative;
 }
 
-.new-post-user-pic img{
+.post-user-pic img{
     border-radius: 50%;
+    height: 40px;
+    width: 40px;
 }
 
-.new-post-user-pic:after{
+.post-user-pic:after{
     border: 1px solid rgba(0, 0, 0, .1);
     bottom: 0;
     content: '';
@@ -532,7 +576,6 @@ ul {
 .divider{
     border-bottom: 1px solid #E9EBEE;
     margin: 0px 12px;
-    margin-top: 2px;
 }
 
 .new-post-footer{
@@ -545,6 +588,7 @@ ul {
     padding: 0 10px;
     padding-right: 15px;
     border-radius: 16px;
+    transition: background 0.1s;
 }
 
 .new-post-footer-item:hover{
@@ -560,10 +604,256 @@ ul {
     font-weight: 600;
     margin-top: -8px;
     display: inline-block;
+    color: #4b4f56;
 }
 
 .new-post-footer-icon{
     width: 20px;
     height: 20px;
     margin-top: 4px;
+}
+
+.new-post-footer-icon.fb-icon-options{
+    margin-right: -5px;
+    background-position: 0 -626px;
+}
+
+.item-container{
+    border-radius: 4px;
+    border: 1px solid #dddfe2;
+    background-color: #fff;
+    width: 100%;
+}
+
+.post-header{
+    padding: 12px 12px 0 12px;
+}
+
+.post-footer .divider{
+    margin: 0;
+}
+
+.post-header a:hover{
+    text-decoration: underline;
+}
+
+.post-header-about{
+    vertical-align: top;
+    padding-left: 3px;
+    padding-top: 1px;
+}
+
+.post-header-text{
+    color: #616770;
+    font-size: 14px;
+}
+
+.post-header-user{
+    font-weight: bold;
+    color: #365899;
+}
+
+.post-header-about-extra{
+    color: #616770;
+    font-size: 12px;
+    line-height: 24px;
+}
+
+.post-time{
+    color: #616770;
+}
+
+.post-header-about-extra .dot{
+    line-height: 12px;
+}
+
+.post-extra-icon{
+    width: 12px;
+    height: 12px;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+.post-options{
+    float:right;
+    cursor:pointer;
+}
+
+.post-header-icon{
+    width:20px;
+    height:20px;
+}
+
+.post-profile-picture-wrapper{
+    border: 1px solid #dddfe2;
+    width:478px;
+    height:465px;
+}
+
+.post-body{
+    padding: 0 12px 0 12px;
+    margin-top: 10px;
+}
+
+.post-profile-picture-cover{
+    height: 177px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.post-profile-picture img{
+    border: 4px solid #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+    width: 364px;
+    height: 364px;
+    object-fit: cover;
+    object-position: 0 -30px;
+    margin: 0 auto;
+    display: block;
+    margin-top: -135px;
+    z-index: 1;
+    position: relative;
+}
+
+.post-actions {
+    display: flex;
+    margin: 4px 0;
+}
+
+.post-actions>a{
+    display: block;
+}
+
+.post-action {
+    width: 100%;
+    text-align: center;
+    height: 32px;
+    line-height: 32px;
+    cursor: pointer;
+}
+
+.post-action:hover{
+    background-color: rgba(29, 33, 41, .04);
+    border-radius: 2px;
+}
+
+.post-action-text{
+    color: #616770;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.post-actions-icon{
+    position: relative;
+    height: 18px;
+    top: 4px;
+    width: 18px;
+}
+
+.post-footer{
+    background-color: #f2f3f5;
+    padding: 0 12px 12px 12px;
+    border-radius: 0 0 4px 4px;
+}
+
+.post-likes{
+    border-top: 1px solid #dddfe2;
+    border-left: 2px solid #4080FF;
+    background-color: #f2f3f5;
+    padding: 9px 12px;
+    margin-left: -1px;
+}
+
+.post-reactions-icons{
+    position: relative;
+    top: 2px;
+}
+
+.post-reactions-icon{
+    border: 1px solid #f2f3f5;
+    border-radius: 50%;
+    margin-right: -7px;
+    height: 18px;
+    width: 18px;
+    position:relative;
+}
+
+.post-reactions-text{
+    color: #365899;
+    font-size: 13px;
+    position: relative;
+    top: -3px;
+    margin-left: 5px;
+}
+
+.post-reactions-text:hover{
+    text-decoration: underline;
+}
+
+.post-comment{
+    margin-top: 7px;
+}
+
+.post-comment-picture-wrapper{
+    float: left;
+}
+
+.post-comment-main{
+    margin-left: 5px;
+    position: relative;
+}
+
+.post-comment-body{
+    min-height: 32px;
+    background-color: #fff;
+    border-radius: 16px;
+    max-width: 409px;
+}
+
+.post-comment-text{
+    font-size: 13px;
+    padding: 8px 10px;
+    display: inline-block;
+}
+
+.post-comment-picture{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.post-comment-picture img{
+    width: 32px;
+    height: 32px;
+}
+
+.post-comment-footer{
+    font-size: 12px;
+    line-height: 12px;
+    margin-left: 10px;
+    margin-top: 4px;
+}
+
+.post-comment-user{
+    font-weight: bold;
+}
+
+.post-comment-options{
+    position: absolute;
+    top: calc(50% - 7px);
+    transform: translateY(-50%);
+    right: -25px;
+}
+
+.post-comment-options-icon{
+    width: 20px;
+    height: 20px;
+    display: none;
+}
+
+.post-comment:hover .post-comment-options-icon{
+    display: block;
 }

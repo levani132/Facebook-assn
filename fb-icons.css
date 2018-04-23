@@ -22,6 +22,24 @@
     background-size: auto;
 }
 
+.fb-icons-5{
+    background-image: url(img/fb_logos5.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.fb-icons-6{
+    background-image: url(img/fb_logos6.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.fb-icons-7{
+    background-image: url(img/fb_logos7.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
 .fb-icon-hat{
     background-position: 0 -1469px;
 }
@@ -136,4 +154,52 @@
 
 .fb-icon-reccomandations{
     background-position: -16px -2012px;
+}
+
+.fb-icon-pen{
+    background-position: 0 -338px;
+}
+
+.fb-icon-book{
+    background-position: 0 -355px;
+}
+
+.fb-icon-camera{
+    background-position: 0 -304px;
+}
+
+.fb-icon-photo-2{
+    background-position: 0 -689px;
+}
+
+.fb-icon-smile{
+    background-position: 0 -584px;
+}
+
+.fb-icon-globe{
+    background-position: -13px -103px;
+}
+
+.fb-icon-like{
+    background-position: 0 -193px;
+}
+
+.fb-icon-comment{
+    background-position: 0 -155px;
+}
+
+.fb-icon-share{
+    background-position: -19px -269px;
+}
+
+.fb-icon-like-1{
+    background-position: 0 -716px;
+}
+
+.fb-icon-heart{
+    background-position: -17px -682px;
+}
+
+.fb-icon-wow{
+    background-position: 0 -733px;
 }
