@@ -40,6 +40,18 @@
     background-size: auto;
 }
 
+.fb-icons-8{
+    background-image: url(img/fb_logos8.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.fb-icons-9{
+    background-image: url(img/fb_logos9.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
 .fb-icon-hat{
     background-position: 0 -1469px;
 }
@@ -202,4 +214,48 @@
 
 .fb-icon-wow{
     background-position: 0 -733px;
+}
+
+.fb-icon-pale-smile{
+    background-position: -34px -62px;
+}
+
+.fb-icon-pale-camera{
+    background-position: 0 -62px;
+}
+
+.fb-icon-pale-gif{
+    background-position: -17px -79px;
+}
+
+.fb-icon-pale-sticker{
+    background-position: -34px -96px;
+}
+
+.fb-icon-pale-smile:hover{
+    background-position: 0 -79px;
+}
+
+.fb-icon-pale-camera:hover{
+    background-position: -17px -62px;
+}
+
+.fb-icon-pale-gif:hover{
+    background-position: -34px -79px;
+}
+
+.fb-icon-pale-sticker:hover{
+    background-position: 0 -113px;
+}
+
+.fb-icon-reply {
+    background-position: 0 -383px;
+}
+
+.fb-icon-gift{
+    background-position: -362px -49px;
+}
+
+.fb-icon-drop{
+    background-position: -484px -49px;
 }
