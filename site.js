@@ -1,26 +1,28 @@
-var w, d, e, g, x, y;
-function updateScrenSize(){
-    w = window;
-    d = document;
-    e = d.documentElement;
-    g = d.getElementsByTagName('body')[0];
-    x = w.innerWidth || e.clientWidth || g.clientWidth;
-    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+function screenSize(){
+    var w = window,
+        e = document.documentElement,
+        g = document.getElementsByTagName('body')[0],
+        x = w.innerWidth || e.clientWidth || g.clientWidth,
+        y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+    return {x, y};
 }
-updateScrenSize();
+
+function screenWidth(){
+    return screenSize().x;
+}
+
+function screenHeight(){
+    return screenSize().y;
+}
 
 var sidebar = document.querySelector('.left-panel');
-var sidebarHeight = sidebar.clientHeight;
-document.body.style.minHeight = (sidebarHeight + 90) + "px";
-var scrollTop = 0;
-var oldScroll = 0;
+document.body.style.minHeight = (sidebar.clientHeight + 90) + "px";
+var scrollTop = 0, oldScroll = 0;
 window.onscroll = () => {
     var curScroll = document.scrollingElement.scrollTop;
     scrollTop += curScroll - oldScroll;
-    scrollTop = Math.min(scrollTop, sidebarHeight - y + 90);
+    scrollTop = Math.min(scrollTop, sidebar.clientHeight - screenHeight() + 90);
     scrollTop = Math.max(scrollTop, 0);
     oldScroll = curScroll;
     sidebar.style.marginTop = (-scrollTop) + "px";
 }
-
-window.onresize = updateScrenSize;
