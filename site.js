@@ -94,8 +94,10 @@ function filterChatUsers(keyword){
         sectionChatList.parentElement.style.paddingRight = "0px";
         chatUsers = Object.assign([], usersDB);
     }
+    chatUsers = chatUsers.filter(user => user.id != 0);
     renderChatUsers();
 }
+filterChatUsers('');
 
 chatSearchInput.onchange = 
 chatSearchInput.oninput = 

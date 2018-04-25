@@ -1,202 +1,202 @@
 const usersDB = [
     {
         id: 0,
-        name: "Ani",
+        name: "Levan",
         lastName: "Beroshvili",
         isActive: false,
         time: "3m",
-        picture: "img/user1.jpg"
+        picture: "img/users/user.jpg"
     },
     {
         id: 1,
-        name: "Rezi",
-        lastName: "Maglaperidze",
+        name: "Ani",
+        lastName: "Beroshvili",
         isActive: true,
         time: "1m",
-        picture: "img/user2.jpg"
+        picture: "img/users/user1.jpg"
     },
     {
         id: 2,
-        name: "Ani",
-        lastName: "Beroshvili",
+        name: "Rezi",
+        lastName: "Maglaperidze",
         isActive: true,
         time: "1m",
-        picture: "img/user3.jpg"
+        picture: "img/users/user2.jpg"
     },
     {
         id: 3,
-        name: "Ani",
-        lastName: "Beroshvili",
-        isActive: false,
+        name: "ჩარბაძე",
+        lastName: "თაკო",
+        isActive: true,
         time: "1m",
-        picture: "img/user4.jpg"
+        picture: "img/users/user3.jpg"
     },
     {
         id: 4,
-        name: "Ani",
-        lastName: "Beroshvili",
-        isActive: false,
+        name: "Anni",
+        lastName: "Rostomashvili",
+        isActive: true,
         time: "1m",
-        picture: "img/user5.jpg"
+        picture: "img/users/user4.jpg"
     },
     {
         id: 5,
-        name: "Rezi",
-        lastName: "Maglaperidze",
+        name: "სალი",
+        lastName: "გოჩაშვილი",
         isActive: true,
         time: "1m",
-        picture: "img/user2.jpg"
+        picture: "img/users/user5.jpg"
     },
     {
         id: 6,
-        name: "Ani",
-        lastName: "Beroshvili",
+        name: "Saba",
+        lastName: "Natroshvili",
         isActive: true,
         time: "1m",
-        picture: "img/user3.jpg"
+        picture: "img/users/user6.jpg"
     },
     {
         id: 7,
-        name: "Ani",
-        lastName: "Beroshvili",
+        name: "Vache",
+        lastName: "Katsadze",
         isActive: false,
         time: "1m",
-        picture: "img/user4.jpg"
+        picture: "img/users/user7.jpg"
     },
     {
         id: 8,
-        name: "Ani",
-        lastName: "Beroshvili",
-        isActive: false,
+        name: "Soso",
+        lastName: "Kvrivishvili",
+        isActive: true,
         time: "1m",
-        picture: "img/user5.jpg"
+        picture: "img/users/user8.jpg"
     },
     {
         id: 9,
-        name: "Rezi",
-        lastName: "Maglaperidze",
+        name: "Nini",
+        lastName: "Gdzelidze",
         isActive: true,
         time: "1m",
-        picture: "img/user2.jpg"
+        picture: "img/users/user9.jpg"
     },
     {
         id: 10,
-        name: "Ani",
-        lastName: "Beroshvili",
+        name: "Giorgi",
+        lastName: "Sikharulidze",
         isActive: true,
         time: "1m",
-        picture: "img/user3.jpg"
+        picture: "img/users/user10.jpg"
     },
     {
         id: 11,
-        name: "Ani",
-        lastName: "Beroshvili",
+        name: "Vaso",
+        lastName: "Rachvelishvili",
         isActive: false,
         time: "1m",
-        picture: "img/user4.jpg"
+        picture: "img/users/user11.jpg"
     },
     {
         id: 12,
-        name: "Ani",
+        name: "Eka",
         lastName: "Beroshvili",
-        isActive: false,
+        isActive: true,
         time: "1m",
-        picture: "img/user5.jpg"
+        picture: "img/users/user12.jpg"
     },
     {
         id: 13,
-        name: "Rezi",
-        lastName: "Maglaperidze",
+        name: "Natia",
+        lastName: "Sonishvili",
         isActive: true,
         time: "1m",
-        picture: "img/user2.jpg"
+        picture: "img/users/user13.jpg"
     },
     {
         id: 14,
-        name: "Ani",
-        lastName: "Beroshvili",
-        isActive: true,
-        time: "1m",
-        picture: "img/user3.jpg"
+        name: "Sandro",
+        lastName: "Jikia",
+        isActive: false,
+        time: "2h",
+        picture: "img/users/user14.jpg"
     },
     {
         id: 15,
-        name: "Ani",
-        lastName: "Beroshvili",
+        name: "Giorgi",
+        lastName: "Wiklauri",
         isActive: false,
         time: "1m",
-        picture: "img/user4.jpg"
+        picture: "img/users/user15.jpg"
     },
     {
         id: 16,
-        name: "Ani",
-        lastName: "Beroshvili",
-        isActive: false,
+        name: "Beka",
+        lastName: "Giguashvili",
+        isActive: true,
         time: "1m",
-        picture: "img/user5.jpg"
+        picture: "img/users/user16.jpg"
     },
     {
         id: 17,
-        name: "Rezi",
-        lastName: "Maglaperidze",
-        isActive: true,
-        time: "1m",
-        picture: "img/user2.jpg"
+        name: "Khatia",
+        lastName: "Margalitadze",
+        isActive: false,
+        time: "7h",
+        picture: "img/users/user17.jpg"
     },
     {
         id: 18,
-        name: "Ani",
-        lastName: "Beroshvili",
+        name: "Nodo",
+        lastName: "Sanaia",
         isActive: true,
         time: "1m",
-        picture: "img/user3.jpg"
+        picture: "img/users/user18.jpg"
     },
     {
         id: 19,
-        name: "Ani",
-        lastName: "Beroshvili",
-        isActive: false,
+        name: "Likuna",
+        lastName: "Chekurishvili",
+        isActive: true,
         time: "1m",
-        picture: "img/user4.jpg"
+        picture: "img/users/user19.jpg"
     },
     {
         id: 20,
-        name: "Ani",
-        lastName: "Beroshvili",
-        isActive: false,
+        name: "Sandro",
+        lastName: "Lomadze",
+        isActive: true,
         time: "1m",
-        picture: "img/user5.jpg"
+        picture: "img/users/user20.jpg"
     },
     {
         id: 21,
-        name: "Rezi",
-        lastName: "Maglaperidze",
+        name: "Dato",
+        lastName: "Salayaia",
         isActive: true,
         time: "1m",
-        picture: "img/user2.jpg"
+        picture: "img/users/user21.jpg"
     },
     {
         id: 22,
-        name: "Ani",
-        lastName: "Beroshvili",
+        name: "Nina",
+        lastName: "Gongladze",
         isActive: true,
         time: "1m",
-        picture: "img/user3.jpg"
+        picture: "img/users/user22.jpg"
     },
     {
         id: 23,
         name: "Ani",
-        lastName: "Beroshvili",
-        isActive: false,
+        lastName: "Nozadze",
+        isActive: true,
         time: "1m",
-        picture: "img/user4.jpg"
+        picture: "img/users/user23.jpg"
     },
     {
         id: 24,
-        name: "Ani",
-        lastName: "Beroshvili",
-        isActive: false,
+        name: "Cotne",
+        lastName: "Pipia",
+        isActive: true,
         time: "1m",
-        picture: "img/user5.jpg"
+        picture: "img/users/user24.jpg"
     }
 ]
