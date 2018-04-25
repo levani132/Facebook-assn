@@ -298,7 +298,7 @@ ul {
 }
 
 .main{
-    max-width: 1012px;
+    width: 1012px;
     margin: 0 auto;
     padding-top: 12px;
 }
@@ -1105,4 +1105,102 @@ ul {
     margin-right: 8px;
     height: 5px;
     width: 9px;
+}
+
+
+
+
+
+
+body.chat-active,
+body.chat-active header{
+    padding-right: 205px;
+}
+
+.chat-sidebar{
+    display:none;
+}
+
+.chat-active .chat-sidebar{
+    font-size: 13px;
+    padding-top: 42px;
+    width: 205px;
+    height: 100%;
+    display: inline-block;
+    border-left: 1px solid #ccc;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.chat-sidebar .section-title{
+    padding: 8px;
+    font-size: 11px;
+}
+
+.no-scrollbar{
+    position: relative;
+    overflow-y: scroll;
+    height: 100%;
+    padding-right: 30px;
+    margin-right: -30px;
+}
+
+.chat-sidebar-container {
+    width: 205px;
+    padding: 10px 0px;
+}
+
+.section-chat-item{
+    padding: 0 8px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.section-chat-item:hover{
+    background-color: #dddfe2;
+}
+
+.section-chat-item a{
+    width: 100%;
+    height: 100%;
+}
+
+.chat-user-picture{
+    width: 34px;
+    height: 34px;
+    margin-right: 5px;
+    vertical-align: middle;
+    border-radius: 50%;
+    margin-top: -2px;
+}
+
+.green-dot::after{
+    content: "";
+    display: inline-block;
+    border: 3px solid green;
+    border-radius: 50%;
+    vertical-align: top;
+}
+
+.green-dot{
+    height: 6px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+}
+
+.is-online{
+    display: none;
+}
+
+.online .is-online{
+    display: inline-block;
+}
+
+.chat-user-active{
+    height: 40px;
+    padding: 0 3px;
+    float: right;
 }

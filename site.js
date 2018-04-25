@@ -18,7 +18,7 @@ function screenHeight(){
 var sidebar = document.querySelector('.left-panel');
 document.body.style.minHeight = (sidebar.clientHeight + 90) + "px";
 var scrollTop = 0, oldScroll = 0;
-window.onscroll = () => {
+var windowScroll = () => {
     var curScroll = document.scrollingElement.scrollTop;
     scrollTop += curScroll - oldScroll;
     scrollTop = Math.min(scrollTop, sidebar.clientHeight - screenHeight() + 90);
@@ -26,3 +26,4 @@ window.onscroll = () => {
     oldScroll = curScroll;
     sidebar.style.marginTop = (-scrollTop) + "px";
 }
+window.onscroll = windowScroll;
