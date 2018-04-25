@@ -63,39 +63,58 @@ window.onresize = () => {
 }
 
 
-
-
 var sectionChatList = document.querySelector('.section-chat-list');
 var chatSidebar = document.querySelector('.chat-sidebar-container');
-var chatUsers = Object.assign([], usersDB);
+var chatUsers = Object.assign([], getAllUsers());
+function renderChatUsers(){
+    var chatUsersView = ChatUsersView(chatUsers);
+    if(chatUsersView.length < 50){
+        document.querySelector('.contacts-title').innerHTML = "No results found";
+    }else{
+        sectionChatList = $('.section-chat-list');
+        var chat = sectionChatList.parentElement;
+        chat.removeChild(sectionChatList);
+        chat.innerHTML += chatUsersView;
+        sectionChatList = chat.querySelector('.section-chat-list');
+        document.querySelector('.contacts-title').innerHTML = "CONTACTS";
+    }
+}
 renderChatUsers();
 
 
 var chatSearchInput = $('.chat-search-input');
 var hasInput = false;
 
-function filterChatUsers(keyword){
-    keyowrd = keyword.toLowerCase();
+function updateChatUsers(keyword){
+    var shownCounter = 2;
+    chatUsers = getAllUsers().filter(user => {
+        return (user.name.toLowerCase().indexOf(keyword) != -1 || 
+            user.lastName.toLowerCase().indexOf(keyword) != -1 ||
+            (user.name + " " + user.lastName).toLowerCase().indexOf(keyword) != -1) &&
+            (keyword == "" || ((shownCounter++) * 40) < chatSidebar.clientHeight - 30);
+    });
+    chatUsers = chatUsers.filter(user => user.id != 0);
+    renderChatUsers();
+
+}
+
+function updateChatView(keyword){
     if(keyword){
         chatSidebar.classList.add('has-search-input');
         sectionChatList.parentElement.style.position = "absolute";
         sectionChatList.parentElement.style.paddingRight = "12px";
         chatSidebar.parentElement.scrollTo(0, chatSidebar.parentElement.scrollHeight);
-        var shownCounter = 2;
-        chatUsers = usersDB.filter(user => {
-            return (user.name.toLowerCase().indexOf(keyword) != -1 || 
-                user.lastName.toLowerCase().indexOf(keyword) != -1 ||
-                (user.name + " " + user.lastName).toLowerCase().indexOf(keyword) != -1) &&
-               ((shownCounter++) * 40) < chatSidebar.clientHeight - 30;
-        });
     }else{
         chatSidebar.classList.remove('has-search-input');
         sectionChatList.parentElement.style.position = "static";
         sectionChatList.parentElement.style.paddingRight = "0px";
-        chatUsers = Object.assign([], usersDB);
     }
-    chatUsers = chatUsers.filter(user => user.id != 0);
-    renderChatUsers();
+}
+
+function filterChatUsers(keyword){
+    keyword = keyword.toLowerCase();
+    updateChatUsers(keyword);
+    updateChatView(keyword);
 }
 filterChatUsers('');
 
@@ -104,3 +123,23 @@ chatSearchInput.oninput =
 chatSearchInput.onpaste = (e) => {
     filterChatUsers(e.target.value);
 }
+
+var loggedUser = getUser(0);
+
+function addNewPost(e){
+    e.preventDefault();
+    var newPost = {
+        id: 0,
+        creator: loggedUser,
+        action: "",
+        time: new Date(),
+        body: $(".new-post-input").value,
+        likers: [],
+        comments: [],
+        isNew: true
+    };
+    postsService.addPost(newPost);
+    $('.feed').innerHTML = postView(newPost) + $('.feed').innerHTML;
+}
+
+$(".middle-panel").innerHTML += postsView(postsDB);

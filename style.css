@@ -35,6 +35,10 @@ ul {
     display: inline-block;
 }
 
+.inline{
+    display: inline;
+}
+
 .header{
     height: 42px;
     width: 100%;
@@ -581,6 +585,9 @@ ul {
     width: calc(100% - 50px);
     font-family: inherit;
     padding-left: 10px;
+    position: relative;
+    top: 13px;
+    vertical-align: top;
 }
 
 .divider{
