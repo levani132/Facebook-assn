@@ -1164,6 +1164,7 @@ body.chat-active header{
 .section-chat-item a{
     width: 100%;
     height: 100%;
+    color: #1d2129;
 }
 
 .chat-user-picture{
@@ -1203,4 +1204,6 @@ body.chat-active header{
     height: 40px;
     padding: 0 3px;
     float: right;
+    color: #90949c;
+    font-size: 11px;
 }

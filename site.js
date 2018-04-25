@@ -27,3 +27,13 @@ var windowScroll = () => {
     sidebar.style.marginTop = (-scrollTop) + "px";
 }
 window.onscroll = windowScroll;
+
+
+
+
+var sectionChatList = document.querySelector('.section-chat-list');
+
+for(var i in usersDB){
+    var user = usersDB[i];
+    sectionChatList.innerHTML += userView(user.name, user.lastName, user.picture, user.isActive, user.time);
+}
