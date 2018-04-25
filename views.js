@@ -12,3 +12,16 @@ function userView(name, lastName, picture, isActive, time){
     </li>\
     `;
 }
+
+function renderChatUsers(){
+    sectionChatList.innerHTML = "";
+    if(chatUsers.length){
+        for(var i in chatUsers){
+            var user = chatUsers[i];
+            sectionChatList.innerHTML += userView(user.name, user.lastName, user.picture, user.isActive, user.time);
+        }
+        document.querySelector('.contacts-title').innerHTML = "CONTACTS";
+    }else{
+        document.querySelector('.contacts-title').innerHTML = "No results found";
+    }
+}

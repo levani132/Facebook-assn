@@ -15,7 +15,12 @@ function screenHeight(){
     return screenSize().y;
 }
 
-var sidebar = document.querySelector('.left-panel');
+function $(selector){
+    return document.querySelector(selector);
+}
+
+var sidebar = $('.left-panel');
+var rightSide = $('.right-panel');
 document.body.style.minHeight = (sidebar.clientHeight + 90) + "px";
 var scrollTop = 0, oldScroll = 0;
 var windowScroll = () => {
@@ -25,15 +30,75 @@ var windowScroll = () => {
     scrollTop = Math.max(scrollTop, 0);
     oldScroll = curScroll;
     sidebar.style.marginTop = (-scrollTop) + "px";
+    if(curScroll > Math.max(rightSide.clientHeight - screenHeight() + 50, 0)){
+        rightSide.classList.add("fixed");
+        if(rightSide.querySelector('div').clientHeight < screenHeight() - 54){
+            rightSide.style.top = "54px";
+        }else{
+            rightSide.style.top = "unset";
+        }
+    }else{
+        rightSide.classList.remove("fixed");
+    }
 }
 window.onscroll = windowScroll;
+
+var chatOpened = true;
+if(document.body.clientWidth < document.querySelector('.main').clientWidth + 247){
+    document.body.classList.remove('chat-active');
+}else{
+    if(chatOpened){
+        document.body.classList.add('chat-active');
+    }
+}
+
+window.onresize = () => {
+    if(document.body.clientWidth < document.querySelector('.main').clientWidth + 247){
+        document.body.classList.remove('chat-active');
+    }else{
+        if(chatOpened){
+            document.body.classList.add('chat-active');
+        }
+    }
+}
 
 
 
 
 var sectionChatList = document.querySelector('.section-chat-list');
+var chatSidebar = document.querySelector('.chat-sidebar-container');
+var chatUsers = Object.assign([], usersDB);
+renderChatUsers();
 
-for(var i in usersDB){
-    var user = usersDB[i];
-    sectionChatList.innerHTML += userView(user.name, user.lastName, user.picture, user.isActive, user.time);
+
+var chatSearchInput = $('.chat-search-input');
+var hasInput = false;
+
+function filterChatUsers(keyword){
+    keyowrd = keyword.toLowerCase();
+    if(keyword){
+        chatSidebar.classList.add('has-search-input');
+        sectionChatList.parentElement.style.position = "absolute";
+        sectionChatList.parentElement.style.paddingRight = "12px";
+        chatSidebar.parentElement.scrollTo(0, chatSidebar.parentElement.scrollHeight);
+        var shownCounter = 2;
+        chatUsers = usersDB.filter(user => {
+            return (user.name.toLowerCase().indexOf(keyword) != -1 || 
+                user.lastName.toLowerCase().indexOf(keyword) != -1 ||
+                (user.name + " " + user.lastName).toLowerCase().indexOf(keyword) != -1) &&
+               ((shownCounter++) * 40) < chatSidebar.clientHeight - 30;
+        });
+    }else{
+        chatSidebar.classList.remove('has-search-input');
+        sectionChatList.parentElement.style.position = "static";
+        sectionChatList.parentElement.style.paddingRight = "0px";
+        chatUsers = Object.assign([], usersDB);
+    }
+    renderChatUsers();
+}
+
+chatSearchInput.onchange = 
+chatSearchInput.oninput = 
+chatSearchInput.onpaste = (e) => {
+    filterChatUsers(e.target.value);
 }
