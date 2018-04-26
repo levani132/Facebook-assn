@@ -1,6 +1,6 @@
 # tacebook
 
-This project is created for educational purposes. Lecturer of web development at the University assigned us to write front end of facebook copy. We had to write html/css project using a little bit of js for effects, but the project is a bit ahead with js usage.
+This project is created for educational purposes. Lecturer of web development at the University assigned us to write front end of facebook copy. We had to write html/css project using a little bit of js for effects, but the project is a bit ahead with js usage. By the way, 'tacebook' because the only difference (Among what really is copied, otherwise project misses many things from fb) is 180 degrees rotated logo, which makes it t, so tacebook.
 
 ## Getting Started
 
