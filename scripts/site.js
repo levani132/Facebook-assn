@@ -1,4 +1,4 @@
-loggedUser = getUser(Math.floor(Math.random() * usersDB.length));
+loggedUser = usersService.getUser(Math.floor(Math.random() * usersDB.length));
 $("app").innerHTML = applicationView();
 function screenSize(){
     var w = window,
@@ -67,7 +67,7 @@ window.onresize = () => {
 
 var sectionChatList = document.querySelector('.section-chat-list');
 var chatSidebar = document.querySelector('.chat-sidebar-container');
-var chatUsers = Object.assign([], getAllUsers());
+var chatUsers = Object.assign([], usersService.getAllUsers());
 function renderChatUsers(){
     var chatUsersView = ChatUsersView(chatUsers);
     if(!chatUsers.length){
@@ -89,7 +89,7 @@ var hasInput = false;
 
 function updateChatUsers(keyword){
     var shownCounter = 2;
-    chatUsers = getAllUsers().filter(user => {
+    chatUsers = usersService.getAllUsers().filter(user => {
         return (user.name.toLowerCase().indexOf(keyword) != -1 || 
             user.lastName.toLowerCase().indexOf(keyword) != -1 ||
             (user.name + " " + user.lastName).toLowerCase().indexOf(keyword) != -1) &&

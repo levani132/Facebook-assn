@@ -5,3 +5,5 @@ function getAllUsers(){
 function getUser(id){
     return usersDB[id];
 }
+
+var usersService = {getAllUsers, getUser};
