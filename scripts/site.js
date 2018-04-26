@@ -1,3 +1,6 @@
+loggedUser = getUser(Math.floor(Math.random() * usersDB.length));
+$(".middle-panel").innerHTML += postsView(postsDB);
+$("main").innerHTML = leftPanelView(loggedUser) + $("main").innerHTML;
 function screenSize(){
     var w = window,
         e = document.documentElement,
@@ -23,7 +26,6 @@ var sidebar = $('.left-panel');
 var rightSide = $('.right-panel');
 document.body.style.minHeight = (sidebar.clientHeight + 90) + "px";
 var scrollTop = 0, oldScroll = 0;
-loggedUser = getUser(Math.floor(Math.random() * usersDB.length));
 var windowScroll = () => {
     var curScroll = document.scrollingElement.scrollTop;
     scrollTop += curScroll - oldScroll;
@@ -184,5 +186,3 @@ function openReplies(commentId, e){
     $(`#comment-${commentId} .more-replies`).classList.add('hidden');
     $(`#comment-${commentId} .post-new-comment input`).focus();
 }
-
-$(".middle-panel").innerHTML += postsView(postsDB);
