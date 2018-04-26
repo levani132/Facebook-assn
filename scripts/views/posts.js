@@ -65,7 +65,7 @@ function postView(post){
             <div class="post-new-comment">
                 <div class="post-comment-picture-wrapper inblock">
                     <a class="post-comment-picture profile-picture">
-                        <img src="img/users/user.jpg" alt="User">
+                        <img src="${loggedUser.picture}" alt="User">
                     </a>
                 </div>
                 <form action="#" onsubmit="addNewComment(${post.id}, event)" class="post-comment-input-wrapper">

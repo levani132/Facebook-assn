@@ -39,7 +39,7 @@ function commentView(comment){
             <div class="post-new-comment hidden">
                 <div class="post-comment-picture-wrapper inblock">
                     <a class="post-comment-picture profile-picture">
-                        <img src="img/users/user.jpg" alt="User">
+                        <img src="${loggedUser.picture}" alt="User">
                     </a>
                 </div>
                 <form action="#" onsubmit="addNewReply(${comment.id}, event)" class="post-comment-input-wrapper">

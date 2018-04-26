@@ -1,6 +1,5 @@
 loggedUser = getUser(Math.floor(Math.random() * usersDB.length));
-$(".middle-panel").innerHTML += postsView(postsDB);
-$("main").innerHTML = leftPanelView(loggedUser) + $("main").innerHTML;
+$("app").innerHTML = applicationView();
 function screenSize(){
     var w = window,
         e = document.documentElement,
@@ -74,13 +73,13 @@ function renderChatUsers(){
     if(!chatUsers.length){
         document.querySelector('.contacts-title').innerHTML = "No results found";
     }else{
-        sectionChatList = $('.section-chat-list');
-        var chat = sectionChatList.parentElement;
-        chat.removeChild(sectionChatList);
-        chat.innerHTML += chatUsersView;
-        sectionChatList = chat.querySelector('.section-chat-list');
         document.querySelector('.contacts-title').innerHTML = "CONTACTS";
     }
+    sectionChatList = $('.section-chat-list');
+    var chat = sectionChatList.parentElement;
+    chat.removeChild(sectionChatList);
+    chat.innerHTML += chatUsersView;
+    sectionChatList = chat.querySelector('.section-chat-list');
 }
 renderChatUsers();
 

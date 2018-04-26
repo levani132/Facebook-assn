@@ -1,4 +1,4 @@
-function leftPanelView(loggedUser){
+function leftPanelView(){
     return `
         <div class="left-panel">
             <div class="left-panel-container">
