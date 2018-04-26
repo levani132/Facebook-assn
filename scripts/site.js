@@ -23,6 +23,7 @@ var sidebar = $('.left-panel');
 var rightSide = $('.right-panel');
 document.body.style.minHeight = (sidebar.clientHeight + 90) + "px";
 var scrollTop = 0, oldScroll = 0;
+loggedUser = getUser(Math.floor(Math.random() * usersDB.length));
 var windowScroll = () => {
     var curScroll = document.scrollingElement.scrollTop;
     scrollTop += curScroll - oldScroll;
@@ -68,7 +69,7 @@ var chatSidebar = document.querySelector('.chat-sidebar-container');
 var chatUsers = Object.assign([], getAllUsers());
 function renderChatUsers(){
     var chatUsersView = ChatUsersView(chatUsers);
-    if(chatUsersView.length < 50){
+    if(!chatUsers.length){
         document.querySelector('.contacts-title').innerHTML = "No results found";
     }else{
         sectionChatList = $('.section-chat-list');
@@ -91,9 +92,10 @@ function updateChatUsers(keyword){
         return (user.name.toLowerCase().indexOf(keyword) != -1 || 
             user.lastName.toLowerCase().indexOf(keyword) != -1 ||
             (user.name + " " + user.lastName).toLowerCase().indexOf(keyword) != -1) &&
-            (keyword == "" || ((shownCounter++) * 40) < chatSidebar.clientHeight - 30);
+            (keyword == "" || ((shownCounter++) * 40) < $('.chat-sidebar').clientHeight - 70);
     });
-    chatUsers = chatUsers.filter(user => user.id != 0);
+    if(keyword == "")
+        chatUsers = chatUsers.filter(user => user.id != loggedUser.id);
     renderChatUsers();
 
 }
@@ -124,8 +126,6 @@ chatSearchInput.onpaste = (e) => {
     filterChatUsers(e.target.value);
 }
 
-var loggedUser = getUser(0);
-
 function addNewPost(e){
     e.preventDefault();
     var newPost = {
@@ -133,13 +133,31 @@ function addNewPost(e){
         creator: loggedUser,
         action: "",
         time: new Date(),
-        body: $(".new-post-input").value,
+        body: new FormData(e.target).get('new-post'),
         likers: [],
         comments: [],
         isNew: true
     };
     postsService.addPost(newPost);
     $('.feed').innerHTML = postView(newPost) + $('.feed').innerHTML;
+    e.target.reset();
+}
+
+function addNewComment(postId, e){
+    e.preventDefault();
+    var newComment = {
+        id: 0,
+        postId: postId,
+        creator: loggedUser,
+        body: new FormData(e.target).get('new-comment'),
+        time: new Date(),
+        likers: [],
+        replies: [],
+        isNew: true
+    }
+    commentsService.addComment(newComment);
+    $(`#post-${postId} .post-comments`).innerHTML += commentView(newComment);
+    e.target.reset();
 }
 
 $(".middle-panel").innerHTML += postsView(postsDB);

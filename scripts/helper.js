@@ -24,3 +24,26 @@ function toSmallTime(date){
     }
     return "Just now";
 }
+
+var loggedUser;
+
+function likersToString(likers){
+    if(!likers.length)
+        return "";
+    var index = 0;
+    if(likers[index].id == loggedUser)
+        index++;
+    var likersString = `${likers[index].name} ${likers[index].lastName}, `;
+    index++;
+    if(likers[index].id == loggedUser)
+        index++;
+    likersString += `${likers[index].name} ${likers[index].lastName}`;
+    var otherLikers = likers.length - 2;
+    likers.forEach(user => {
+        if(user.id == loggedUser.id){
+            likersString = `You, ${likersString}`;
+            otherLikers--;
+        }
+    });
+    return `${likersString} and ${otherLikers} others`;
+}

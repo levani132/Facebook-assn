@@ -1316,6 +1316,21 @@ body.chat-active header{
     line-height: 40px;
 }
 
+.user-mini-block{
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateX(calc(-100% - 20px));
+    display: none;
+    width: 500px;
+    height: 120px;
+    background: #ccc;
+}
+
+.section-chat-item:hover .user-mini-block {
+    display: block;
+}
+
 .section-chat-item:hover{
     background-color: #dddfe2;
 }

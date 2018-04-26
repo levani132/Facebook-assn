@@ -1,6 +1,6 @@
 function postView(post){
     return `
-    <div class="post-container item-container">
+    <div class="post-container item-container" id="post-${post.id}">
         <div class="post-header">
             <div class="post-user-pic inblock profile-picture">
                 <a href="#"><img src="${post.creator.picture}" alt="${post.creator.name} ${post.creator.lastName}"></a>
@@ -47,7 +47,7 @@ function postView(post){
                 </div>
             </div>
         </div>
-        <div class="post-likes">
+        ${post.likers.length ? `<div class="post-likes ${post.isNew ? "new" : ""}">
             <a href="#">
                 <div class="post-reactions-icons inblock">
                     <span style="z-index:9;" class="post-reactions-icon inblock fb-icons-7 fb-icon-like-1"></span>
@@ -56,9 +56,9 @@ function postView(post){
                 </div>
             </a>
             <a href="#" class="post-reactions-text inblock">
-                Giorgi Qarchava, Salome Dolidze and 96 others
+                ${likersToString(post.likers)}
             </a>
-        </div>
+        </div>` : ''}
         <div class="post-footer">
             <div class="divider"></div>
             ${commentsView(post.comments)}
@@ -68,8 +68,8 @@ function postView(post){
                         <img src="img/users/user.jpg" alt="User">
                     </a>
                 </div>
-                <div class="post-comment-input-wrapper">
-                    <input class="post-comment-input" type="text" placeholder="Write a comment...">
+                <form action="#" onsubmit="addNewComment(${post.id}, event)" class="post-comment-input-wrapper">
+                    <input class="post-comment-input" autocomplete="off" name="new-comment" type="text" placeholder="Write a comment...">
                     <div class="inblock post-new-comment-items">
                         <a href="#" class="inblock post-new-comment-item">
                             <div class="comment-item-title">
@@ -96,7 +96,7 @@ function postView(post){
                             <div class="inblock fb-icons-8 fb-icon-pale-sticker post-comment-icon"></div>
                         </a>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

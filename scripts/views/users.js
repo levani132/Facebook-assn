@@ -9,6 +9,7 @@ function chatUserView(user){
                 <span class='green-dot is-online'></span>
             </div>
         </a>
+        <div class="user-mini-block">askjn</div>
     </li>
     `;
 }

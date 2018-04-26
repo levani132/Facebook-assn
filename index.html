@@ -16,7 +16,7 @@
                 <a href="#"><div class="fb-icons-1 inblock logo"></div></a>
                 <div class="inblock search-bar">
                     <div class="search-wrapper">
-                        <input type="text" placeholder="Search" class="search-input">
+                        <input type="text" placeholder="Search" autocomplete="off" class="search-input">
                         <button class="search-button">
                             <span class="fb-icons-3 search-logo"></span>
                         </button>
@@ -393,7 +393,7 @@
                             <a href="#"><img src="img/users/user.jpg" alt="Levan Beroshvili"></a>
                         </div>
                         <form action="#" onsubmit="addNewPost(event)" class="inline">
-                            <input class="new-post-input" name="new-post" placeholder="What's on your mind, Levan?" />
+                            <input class="new-post-input" autocomplete="off" name="new-post" placeholder="What's on your mind, Levan?" />
                         </form>
                     </div>
                     <div class="divider"></div>
@@ -572,7 +572,7 @@
                     <div class="chat-search-icon">
                         <span class="fb-icons-10 fb-icon-search-2"></span>
                     </div>
-                    <input class="chat-search-input" placeholder="Search" />
+                    <input autocomplete="off" class="chat-search-input" placeholder="Search" />
                     <div class="chat-sidebar-footer-right">
                         <div class="chat-footer-icon">
                             <span class="fb-icons-10 fb-icon-chat-setting"></span>
@@ -588,6 +588,7 @@
             </div>
         </div>
     </div>
+    <script src="scripts/helper.js"></script>
     <script src="scripts/views/extra.js"></script>
     <script src="scripts/views/users.js"></script>
     <script src="scripts/views/replies.js"></script>
@@ -601,7 +602,6 @@
     <script src="scripts/db/replies.js"></script>
     <script src="scripts/db/comments.js"></script>
     <script src="scripts/db/posts.js"></script>
-    <script src="scripts/helper.js"></script>
     <script src="scripts/site.js"></script>
 </body>
 </html>
