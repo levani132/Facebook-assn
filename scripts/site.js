@@ -141,13 +141,14 @@ function addNewPost(e){
     postsService.addPost(newPost);
     $('.feed').innerHTML = postView(newPost) + $('.feed').innerHTML;
     e.target.reset();
+    document.querySelector('main').focus();
 }
 
 function addNewComment(postId, e){
     e.preventDefault();
     var newComment = {
         id: 0,
-        postId: postId,
+        postId,
         creator: loggedUser,
         body: new FormData(e.target).get('new-comment'),
         time: new Date(),
@@ -158,6 +159,30 @@ function addNewComment(postId, e){
     commentsService.addComment(newComment);
     $(`#post-${postId} .post-comments`).innerHTML += commentView(newComment);
     e.target.reset();
+}
+
+function addNewReply(commentId, e){
+    e.preventDefault();
+    var newReply = {
+        id: 0,
+        commentId,
+        creator: loggedUser,
+        body: new FormData(e.target).get('new-comment'),
+        time: new Date(),
+        likers: [],
+        isNew: true
+    }
+    repliesService.addReply(newReply);
+    $(`#comment-${commentId} .replies`).innerHTML += replyView(newReply);
+    e.target.reset();
+}
+
+function openReplies(commentId, e){
+    e.preventDefault();
+    $(`#comment-${commentId} .replies-wrapper`).classList.remove('hidden');
+    $(`#comment-${commentId} .post-new-comment`).classList.remove('hidden');
+    $(`#comment-${commentId} .more-replies`).classList.add('hidden');
+    $(`#comment-${commentId} .post-new-comment input`).focus();
 }
 
 $(".middle-panel").innerHTML += postsView(postsDB);
