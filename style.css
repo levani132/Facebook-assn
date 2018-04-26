@@ -798,6 +798,10 @@ main:focus{
     font-weight: bold;
 }
 
+.liked .post-action-text {
+    color: rgb(64, 128, 255);
+}
+
 .post-actions-icon{
     position: relative;
     height: 18px;

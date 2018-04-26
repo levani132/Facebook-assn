@@ -185,3 +185,21 @@ function openReplies(commentId, e){
     $(`#comment-${commentId} .more-replies`).classList.add('hidden');
     $(`#comment-${commentId} .post-new-comment input`).focus();
 }
+
+function likePost(postId){
+    var post = getPost(postId);
+    if(post.likers.indexOf(loggedUser) != -1){
+        post.likers = post.likers.filter(liker => liker != loggedUser);
+        $(`#post-${postId} .post-reactions-text`).innerHTML = likersToString(post.likers);
+        $(`#post-${postId} .like`).classList.remove('liked');
+    }else{
+        post.likers.push(loggedUser);
+        $(`#post-${postId} .post-reactions-text`).innerHTML = likersToString(post.likers);
+        $(`#post-${postId} .like`).classList.add('liked');
+    }
+    if(post.likers.length){
+        $(`#post-${postId} .post-likes`).classList.remove('hidden');
+    }else{
+        $(`#post-${postId} .post-likes`).classList.add('hidden');
+    }
+}

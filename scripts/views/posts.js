@@ -27,7 +27,7 @@ function postView(post){
                 ${post.body}
             </div>
             <div class="post-actions">
-                <div class="post-action like">
+                <div onclick="likePost(${post.id})" class="post-action like ${post.likers.indexOf(loggedUser) != -1 ? 'liked' : ''}">
                     <div class="action-button-icon inblock">
                         <span class="inblock post-actions-icon fb-icons-7 fb-icon-like"></span>
                     </div>
@@ -47,18 +47,19 @@ function postView(post){
                 </div>
             </div>
         </div>
-        ${post.likers.length ? `<div class="post-likes ${post.isNew ? "new" : ""}">
-            <a href="#">
-                <div class="post-reactions-icons inblock">
-                    <span style="z-index:9;" class="post-reactions-icon inblock fb-icons-7 fb-icon-like-1"></span>
-                    <span style="z-index:8;" class="post-reactions-icon inblock fb-icons-7 fb-icon-heart"></span>
-                    <span style="z-index:7;" class="post-reactions-icon inblock fb-icons-7 fb-icon-wow"></span>
-                </div>
-            </a>
-            <a href="#" class="post-reactions-text inblock">
-                ${likersToString(post.likers)}
-            </a>
-        </div>` : ''}
+        <div class="${post.likers.length ? '' : 'hidden'} post-likes ${post.isNew ? "new" : ""}">
+            
+                <a href="#">
+                    <div class="post-reactions-icons inblock">
+                        <span style="z-index:9;" class="post-reactions-icon inblock fb-icons-7 fb-icon-like-1"></span>
+                        <span style="z-index:8;" class="post-reactions-icon inblock fb-icons-7 fb-icon-heart"></span>
+                        <span style="z-index:7;" class="post-reactions-icon inblock fb-icons-7 fb-icon-wow"></span>
+                    </div>
+                </a>
+                <a href="#" class="post-reactions-text inblock">
+                    ${likersToString(post.likers)}
+                </a>
+        </div>
         <div class="post-footer">
             <div class="divider"></div>
             ${commentsView(post.comments)}

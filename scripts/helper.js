@@ -28,22 +28,48 @@ function toSmallTime(date){
 var loggedUser;
 
 function likersToString(likers){
+    var likersString = "";
     if(!likers.length)
-        return "";
+        return likersString;
+    var otherLikers = likers.length;
+    var liked = false;
+    if(likers.indexOf(loggedUser) != -1){
+        liked = true;
+        likersString = `You`;
+        otherLikers--;
+    }
+    if(otherLikers == 0)
+        return likersString;
+    if(liked && otherLikers == 1)
+        likersString += ' and ';
+    else if(liked)
+        likersString += ', ';
+
+    
     var index = 0;
-    if(likers[index].id == loggedUser)
+    if(likers[index] == loggedUser)
         index++;
-    var likersString = `${likers[index].name} ${likers[index].lastName}, `;
+    likersString += `${likers[index].name} ${likers[index].lastName}`;
+    otherLikers--;
+    if(otherLikers == 0)
+        return likersString;
+    if(otherLikers == 1)
+        likersString += ' and ';
+    else
+        likersString += ', ';
+
+    
     index++;
     if(likers[index].id == loggedUser)
         index++;
     likersString += `${likers[index].name} ${likers[index].lastName}`;
-    var otherLikers = likers.length - 2;
-    likers.forEach(user => {
-        if(user.id == loggedUser.id){
-            likersString = `You, ${likersString}`;
-            otherLikers--;
-        }
-    });
-    return `${likersString} and ${otherLikers} others`;
+    otherLikers--;
+    if(otherLikers == 0)
+        return likersString;
+    if(otherLikers == 1)
+        likersString += ` and 1 other`;
+    else
+        likersString += ` and ${otherLikers} others`;
+    
+    return likersString;
 }
