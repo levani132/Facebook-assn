@@ -785,6 +785,7 @@ main:focus{
     height: 32px;
     line-height: 32px;
     cursor: pointer;
+    user-select: none;
 }
 
 .post-action:hover{
@@ -805,8 +806,13 @@ main:focus{
 .post-actions-icon{
     position: relative;
     height: 18px;
-    top: 4px;
     width: 18px;
+    top: 4px;
+    transition: transform .2s;
+}
+
+.liking .fb-icon-like{
+    transform: scale(1.2) rotate(-10deg);
 }
 
 .post-footer{

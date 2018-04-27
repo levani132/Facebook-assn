@@ -195,7 +195,9 @@ function likePost(postId){
     }else{
         post.likers.push(loggedUser);
         $(`#post-${postId} .post-reactions-text`).innerHTML = likersToString(post.likers);
+        $(`#post-${postId} .like`).classList.add('liking');
         $(`#post-${postId} .like`).classList.add('liked');
+        setTimeout(() => $(`#post-${postId} .like`).classList.remove('liking'), 350);
     }
     if(post.likers.length){
         $(`#post-${postId} .post-likes`).classList.remove('hidden');
