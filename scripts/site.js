@@ -104,13 +104,9 @@ function updateChatUsers(keyword){
 function updateChatView(keyword){
     if(keyword){
         chatSidebar.classList.add('has-search-input');
-        sectionChatList.parentElement.style.position = "absolute";
-        sectionChatList.parentElement.style.paddingRight = "12px";
         chatSidebar.parentElement.scrollTo(0, chatSidebar.parentElement.scrollHeight);
     }else{
         chatSidebar.classList.remove('has-search-input');
-        sectionChatList.parentElement.style.position = "static";
-        sectionChatList.parentElement.style.paddingRight = "0px";
     }
 }
 
@@ -119,7 +115,6 @@ function filterChatUsers(keyword){
     updateChatUsers(keyword);
     updateChatView(keyword);
 }
-filterChatUsers('');
 
 chatSearchInput.onchange = 
 chatSearchInput.oninput = 

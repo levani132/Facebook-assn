@@ -198,5 +198,13 @@ const usersDB = [
         isActive: true,
         time: "1m",
         picture: "img/users/user24.jpg"
+    },
+    {
+        id: 12,
+        name: "Levan",
+        lastName: "Shanava",
+        isActive: true,
+        time: "1m",
+        picture: "img/users/user25.jpg"
     }
 ]

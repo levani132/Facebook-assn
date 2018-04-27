@@ -58,6 +58,12 @@
     background-size: auto;
 }
 
+.fb-icons-11{
+    background-image: url(../img/fb_logos11.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
 .fb-icon-hat{
     background-position: 0 -1469px;
 }
@@ -284,4 +290,12 @@
 
 .fb-icon-add-friend{
     background-position: 0 -295px;
+}
+
+.fb-icon-send-friend{
+    background-position: 0 0;
+}
+
+.fb-icon-friends-2{
+    background-position: 0 -17px;
 }

@@ -31,7 +31,7 @@ function commentView(comment){
                     ${comment.replies.length} Replies
                 </span>
                 <div class="dot">.</div>
-                <span class="usual-a post-time">3m</span>
+                <span class="usual-a post-time">${comment.replies.length ? timePassed(comment.replies[comment.replies.length - 1].time) : ""}</span>
             </a>
             <div class="replies-wrapper hidden">
                 ${repliesView(comment.replies)}

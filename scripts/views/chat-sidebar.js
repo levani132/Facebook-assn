@@ -5,8 +5,7 @@ function chatSidebarView(){
                 <div class="chat-sidebar-container">
                     <div class="chat-contacts-section">
                         <div class="section-title contacts-title">CONTACTS</div>
-                        <ul class="section-chat-list">
-                        </ul>
+                        ${ChatUsersView(usersDB.filter(user => user != loggedUser))}
                     </div>
                     <div class="chat-sidebar-footer">
                         <div class="chat-search-icon">

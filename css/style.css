@@ -788,12 +788,12 @@ main:focus{
     user-select: none;
 }
 
-.post-action:hover{
+.post-action:hover {
     background-color: rgba(29, 33, 41, .04);
     border-radius: 2px;
 }
 
-.post-action-text{
+.post-action-text {
     color: #616770;
     font-size: 13px;
     font-weight: bold;
@@ -1336,34 +1336,47 @@ body.chat-active header{
 
 .no-scrollbar{
     position: relative;
+    box-sizing: content-box;
     overflow-y: scroll;
-    height: 100%;
+    overflow-x: hidden;
+    height: calc(100% + 30px);
     padding-right: 30px;
     margin-right: -30px;
+    padding-bottom: 30px;
+    pointer-events: none;
+    margin-left: -400px;
+    padding-left: 400px;
 }
 
 .chat-sidebar-container {
+    pointer-events: auto;
     width: 205px;
     padding: 10px 0px;
     padding-bottom: 41px;
     min-height: 100%;
 }
 
-.section-chat-item{
-    padding: 0 8px;
-    height: 40px;
-    line-height: 40px;
+.no-scrollbar:hover .chat-sidebar-container{
+    padding-bottom: 50px;
 }
 
-.user-mini-block{
-    position: absolute;
-    left: 0;
-    top: 0;
-    transform: translateX(calc(-100% - 20px));
-    display: none;
-    width: 500px;
-    height: 120px;
-    background: #ccc;
+.no-scrollbar:hover{
+    margin-left: -400px;
+    padding-left: 400px;
+    width: 100%;
+    box-sizing: content-box;
+}
+
+.section-chat-list{
+    padding-bottom: 23px;
+}
+
+.section-chat-item{
+    padding: 0 8px;
+    width: 205px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
 }
 
 .section-chat-item:hover .user-mini-block {
@@ -1479,4 +1492,111 @@ body.chat-active header{
     vertical-align: bottom;
     width: 100%;
     bottom: 36px;
+}
+
+.has-search-input .chat-contacts-section{
+    position: absolute;
+    padding-right: 12px;
+    padding-bottom: 35px;
+}
+
+.user-mini-block{
+    position: absolute;
+    left: -15px;
+    margin-right: 15px;
+    padding: 10px;
+    transform: translateX(-100%);
+    top: 0;
+    display: none;
+    width: 370px;
+    height: 132px;
+    background: white;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1), 0 1px 10px rgba(0, 0, 0, .35);
+}
+
+.user-mini-block a{
+    color: #365899;
+}
+
+.user-mini-block>.user-mini-bridge{
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    transform: translateX(50%);
+}
+
+.user-mini-block::after{
+    border-left: 9px solid rgba(0, 0, 0, .35);
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 19px;
+    transform: translateX(100%);
+    z-index: 0;
+}
+
+.user-mini-block::before{
+    border-left: 8px solid #fff;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20px;
+    transform: translateX(100%);
+    z-index: 1;
+}
+
+.user-mini-left-side{
+    display: inline-block;
+}
+
+.user-mini-img{
+    width: 100px;
+    height: 100px;
+}
+
+.user-mini-right-side{
+    display: inline-block;
+    line-height: 17px;
+    max-width: 240px;
+    margin-left: 6px;
+    padding: 2px;
+    vertical-align: top;
+}
+
+.user-mini-name{
+    font-size: 14px;
+    margin-bottom: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.friend-mini-section{
+    font-size: 12px;
+}
+
+.friend-mini-section-left {
+    display: inline-block;
+    height: 100%;
+    margin: 0 4px;
+}
+
+.friend-mini-section-right{
+    display: inline-block;
+    max-width: 200px;
+}
+
+.friend-mini-section-left{
+    vertical-align: top;
+}
+
+.friend-mini-section-left .fb-icons-11{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
 }
