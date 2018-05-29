@@ -200,7 +200,7 @@ const usersDB = [
         picture: "img/users/user24.jpg"
     },
     {
-        id: 12,
+        id: 25,
         name: "Levan",
         lastName: "Shanava",
         isActive: true,
