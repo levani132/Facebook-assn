@@ -1,4 +1,4 @@
-const usersDB = [
+var usersDB = [
     {
         id: 0,
         name: "Levan",
@@ -207,4 +207,10 @@ const usersDB = [
         time: "1m",
         picture: "img/users/user25.jpg"
     }
-]
+];
+
+if(!localStorage.usersDB){
+    localStorage.usersDB = JSON.stringify(usersDB);
+}else{
+    usersDB = JSON.parse(localStorage.usersDB);
+}

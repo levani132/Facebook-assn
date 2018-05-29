@@ -10,6 +10,7 @@ function addComment(comment){
     comment.id = commentsDB.length;
     commentsDB.push(comment);
     postsService.getPost(comment.postId).comments.push(comment);
+    save("comments");
 }
 
 var commentsService = {getPostComments, addComment, getComment};

@@ -27,7 +27,7 @@ function postView(post){
                 ${post.body}
             </div>
             <div class="post-actions">
-                <div onclick="likePost(${post.id})" class="post-action like ${post.likers.indexOf(loggedUser) != -1 ? 'liked' : ''}">
+                <div onclick="likePost(${post.id})" class="post-action like ${post.likers.find(user => user.id == loggedUser.id) != null ? 'liked' : ''}">
                     <div class="action-button-icon inblock">
                         <span class="inblock post-actions-icon fb-icons-7 fb-icon-like"></span>
                     </div>

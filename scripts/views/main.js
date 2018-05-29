@@ -5,7 +5,7 @@ function mainView(){
             <div class="main-panel">
                 <div class="middle-panel">
                     ${newPostView()}
-                    ${postsView(postsDB)}
+                    ${postsView(postsService.getAllPosts())}
                 </div>
                 ${rightPanelView()}
             </div>

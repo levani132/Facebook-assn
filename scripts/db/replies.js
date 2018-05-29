@@ -1,4 +1,4 @@
-const repliesDB = [
+var repliesDB = [
     {
         id: 0,
         commentId: 0,
@@ -17,4 +17,10 @@ const repliesDB = [
         likers: [usersService.getUser(1)],
         isNew: true
     }
-]
+];
+
+if(!localStorage.repliesDB){
+    localStorage.repliesDB = JSON.stringify(repliesDB);
+}else{
+    repliesDB = JSON.parse(localStorage.repliesDB);
+}

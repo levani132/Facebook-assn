@@ -73,3 +73,7 @@ function likersToString(likers){
     
     return likersString;
 }
+
+function save(table){
+    localStorage[table + "DB"] = JSON.stringify(eval(table + "DB"));
+}

@@ -1,4 +1,4 @@
-const commentsDB = [
+var commentsDB = [
     {
         id: 0,
         postId: 0,
@@ -19,4 +19,11 @@ const commentsDB = [
         replies: repliesService.getCommentReplies(1),
         isNew: true
     }
-]
+];
+
+if(!localStorage.postsDB){
+    localStorage.commentsDB = JSON.stringify(commentsDB);
+}else{
+    commentsDB = JSON.parse(localStorage.commentsDB);
+    commentsDB.forEach(comment => comment.replies = repliesService.getCommentReplies(comment.id));
+}

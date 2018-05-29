@@ -25,7 +25,7 @@ var sidebar = $('.left-panel');
 var rightSide = $('.right-panel');
 document.body.style.minHeight = (sidebar.clientHeight + 90) + "px";
 var scrollTop = 0, oldScroll = 0;
-var windowScroll = () => {
+function windowScroll() {
     var curScroll = document.scrollingElement.scrollTop;
     scrollTop += curScroll - oldScroll;
     scrollTop = Math.min(scrollTop, sidebar.clientHeight - screenHeight() + 90);
@@ -183,8 +183,8 @@ function openReplies(commentId, e){
 
 function likePost(postId){
     var post = getPost(postId);
-    if(post.likers.indexOf(loggedUser) != -1){
-        post.likers = post.likers.filter(liker => liker != loggedUser);
+    if(post.likers.find(user => user.id == loggedUser.id) != null){
+        post.likers = post.likers.filter(liker => liker.id != loggedUser.id);
         $(`#post-${postId} .post-reactions-text`).innerHTML = likersToString(post.likers);
         $(`#post-${postId} .like`).classList.remove('liked');
     }else{
@@ -199,4 +199,5 @@ function likePost(postId){
     }else{
         $(`#post-${postId} .post-likes`).classList.add('hidden');
     }
+    save('posts');
 }

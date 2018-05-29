@@ -1,4 +1,4 @@
-const postsDB = [
+var postsDB = [
     {
         id: 0,
         creator: usersService.getUser(2),
@@ -16,7 +16,14 @@ const postsDB = [
             usersService.getUser(11),
             usersService.getUser(12)
         ],
-        comments: getPostComments(0),
+        comments: commentsService.getPostComments(0),
         isNew: false
     }
 ];
+
+if(!localStorage.postsDB){
+    localStorage.postsDB = JSON.stringify(postsDB);
+}else{
+    postsDB = JSON.parse(localStorage.postsDB);
+    postsDB.forEach(post => post.comments = commentsService.getPostComments(post.id));
+}
